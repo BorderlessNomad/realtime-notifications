@@ -1,7 +1,7 @@
 Realtime User Notification Subscription
 =========
 
-Very useful to have pub-sub mechanism on your website for realtime notifications.
+Very lightweight and handy pub-sub mechanism for your realtime notification system.
 
 Version
 -

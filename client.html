@@ -3,23 +3,34 @@
         <script src="http://localhost:8080/socket.io/socket.io.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>
+            var urlParams;
+            (window.onpopstate = function () {
+                var match,
+                    pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                    search = /([^&=]+)=?([^&]*)/g,
+                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                    query  = window.location.search.substring(1);
+
+                urlParams = {};
+                while (match = search.exec(query))
+                   urlParams[decode(match[1])] = decode(match[2]);
+            })();
+
             try {
                 //socket io client
+                var user_id = (typeof urlParams['user'] !== 'undefined' && urlParams['user'].length > 0) ? parseInt(urlParams['user']) : 101;
                 var socket = io.connect('http://localhost:8080/notification');
 
                 socket.on("connect", function() {
                     console.log("connected");
                     // Let the server know who is connected...
-                    socket.emit("user", { id: 101 });
+                    socket.emit("user", { id: user_id });
                 });
 
+                //On receving some data
                 socket.on('update', function (data) {
-                    // Do something cool like update badges/status/etc...
                     console.log(data);
-                    var msg = "";
-                    
-                    msg += data.user + ' @ ' + data.ts + ' : ' + data.message;
-                    
+                    var msg = data.user + ' @ ' + data.ts + ' : ' + data.message;
                     addMessage(msg);
                 });
             } catch (e) {

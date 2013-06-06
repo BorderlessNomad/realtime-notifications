@@ -9,14 +9,22 @@
 
                 socket.on("connect", function() {
                     console.log("connected");
-                    // Let the server know who is connected...
+                    // Do something cool like update badges/status/etc...
                     setInterval(function() {
+
                         setTimeout(function() {
-                            socket.emit("push", { id: 101, message: { message: getRandomInt(10, 49), ts: Date.now() } });
+                            var data = { id: 101, message: { message: getRandomInt(10, 49), ts: Date.now() } };
+                            var msg = data.id + ' @ ' + data.message.message + ' : ' + data.message.ts;
+                            socket.emit("push", data);
+                            addMessage(msg);
+
                             setTimeout(function() {
-                                socket.emit("push", { id: 102, message: { message: getRandomInt(50, 99), ts: Date.now() } });
+                                var data = { id: 102, message: { message: getRandomInt(50, 99), ts: Date.now() } };
+                                var msg = data.id + ' @ ' + data.message.message + ' : ' + data.message.ts;
+                                socket.emit("push", data);
+                                addMessage(msg);
                             }, 2000);
-                        }, 4000);
+                        }, 2000);
                     }, 1000);
                 });
             } catch (e) {
@@ -26,12 +34,18 @@
             function getRandomInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
+
+            //adds message to messages div
+            function addMessage(msg) {
+                var str = '<div class="message">' + msg + '</div><hr>';
+                console.log(str)
+                $('#messages').append(str)
+            }
         </script>
     </head>
     <body>
         Publisher
         <hr/>
-        <div id="status"></div><br/><br/>
         <div id="messages"></div>
     </body>
 </html>
