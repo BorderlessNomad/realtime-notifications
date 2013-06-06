@@ -1,0 +1,18 @@
+{
+    "name": "Realtime-PubSub",
+    "version": "1.0.0",
+    "author": "Mayur Ahir <ahirmayur@gmail.com>",
+    "description": "Realtime Pubsub Server demo",
+    "preferGlobal": true,
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "socket.io": "*",
+        "hiredis": "*",
+        "redis": "*",
+    },
+    "engines": {
+        "node": ">=0.10.x"
+    }
+}
