@@ -1,4 +1,4 @@
-Realtime User Notification Subscription
+The Real-Time Notification Server
 =========
 
 Very lightweight and handy pub-sub mechanism for your realtime notification system.

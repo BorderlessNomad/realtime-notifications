@@ -1,7 +1,5 @@
 try {
-	var sio = require('socket.io');
-
-	var io = sio.listen(8080);
+	var io = require('socket.io').listen(8080);
 
 	io.enable('browser client minification'); 	// send minified client
 	io.enable('browser client etag'); 			// apply etag caching logic based on version number
@@ -37,7 +35,7 @@ try {
 				// Let's clean up the data a little (we don't need to tell the user who they are)
 				var channel = data.id;
 
-				var publish = data.message;
+				var publish = data.publish;
 				publish['user'] = channel;
 
 				delete data.id;

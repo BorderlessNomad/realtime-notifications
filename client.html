@@ -28,7 +28,7 @@
                 });
 
                 //On receving some data
-                socket.on('update', function (data) {
+                socket.on('notify', function (data) {
                     console.log(data);
                     var msg = data.user + ' @ ' + data.ts + ' : ' + data.message;
                     addMessage(msg);
