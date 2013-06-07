@@ -1,7 +1,7 @@
 try {
-	var 	redis 		= require('redis'),
-			subscriber  = redis.createClient(),
-			io 			= require('socket.io').listen(8080);
+	var redis 		= require('redis'),
+		subscriber  = redis.createClient(),
+		io 			= require('socket.io').listen(8080);
 
 	subscriber.select(4);
 
