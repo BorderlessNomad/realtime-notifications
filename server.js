@@ -27,7 +27,10 @@ try {
 			}
 		});
 
-		// We can now "push" information to the user from any process that can connect to this service...
+		/**
+		 * For socket.io based emitter
+		 * We can now "push" information to the user from any process that can connect to this service...
+		 */
 		// socket.on("push", function (data) {
 		// 	try {
 		// 		// Make sure we have the data we need...
@@ -52,7 +55,7 @@ try {
 		// });
 
 		/**
-		 * @note: Redis pubsub is non-persistent which means that events are
+		 * @note: Redis pub-sub is non-persistent which means that events are
 		 * dispatched as soon as they are received.
 		 * Client will only get events thats are being emitted right now i.e.
 		 * No past events are emitted

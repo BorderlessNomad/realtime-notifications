@@ -16,6 +16,7 @@ Dillinger uses a number of open source projects to work properly:
 * node.js - evented I/O for the backend
 * socket.io - makes realtime apps possible in every browser and mobile device
 * redis.io - key-value store with pub-sub
+* php - general-purpose, easy to use scripting language 
 * ♥♥ Love ♥♥
 
 Installation
@@ -27,12 +28,20 @@ node server.js
 ```
 In your browser open,
 ```
+//For JS based publisher (Emitter)
+http://localhost/publisher.html
+
+//For PHP based publisher (Redis Pub-Sub)
 http://localhost/publisher.html
 ```
 
 Then open,
 ```
+//default user is 101
 http://localhost/client.html
+
+//open another window/browser and enter
+http://localhost/client.html?user=102
 ```
 
 Author
