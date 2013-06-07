@@ -13,13 +13,13 @@
                     setInterval(function() {
 
                         setTimeout(function() {
-                            var data = { id: 101, publish: { message: getRandomInt(10, 49), ts: Date.now() } };
+                            var data = { id: 101, publish: { n_id: getRandomInt(100000, 200000), message: getRandomInt(10, 49), ts: Date.now() } };
                             var msg = data.id + ' @ ' + data.publish.message + ' : ' + data.publish.ts;
                             socket.emit("push", data);
                             addMessage(msg);
 
                             setTimeout(function() {
-                                var data = { id: 102, publish: { message: getRandomInt(50, 99), ts: Date.now() } };
+                                var data = { id: 102, publish: { n_id: getRandomInt(100000, 200000), message: getRandomInt(50, 99), ts: Date.now() } };
                                 var msg = data.id + ' @ ' + data.publish.message + ' : ' + data.publish.ts;
                                 socket.emit("push", data);
                                 addMessage(msg);
