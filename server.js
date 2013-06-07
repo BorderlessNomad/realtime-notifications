@@ -86,6 +86,7 @@ try {
 			}
 		});
 
+		//Redis channel subscription
 		subscriber.subscribe('activity');
 	});
 } catch (e) {

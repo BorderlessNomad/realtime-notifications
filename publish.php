@@ -1,3 +1,8 @@
+<body>
+    Publisher
+    <hr/>
+    <div id="messages"></div>
+</body>
 <?php
 try {
     $redis = new Redis();
@@ -5,7 +10,7 @@ try {
     $redis->select(4); //db 4
 
     for($i = 0; $i < 100; $i++) {
-        //Following will publish mini_content to activity channel
+        //Following will publish content to activity channel
         $content = array(
             'id' => rand(101, 102),
             'publish' => array(
@@ -24,8 +29,10 @@ try {
         echo "<pre>";
         print_r($content);
         
+        //Publish activity
         $redis->publish('activity', json_encode($content));
 
+        //Sleep and next
         usleep(rand(50000, 100000));
     }
 } catch (RedisException $e) {

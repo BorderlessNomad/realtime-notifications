@@ -27,7 +27,7 @@
                     socket.emit("user", { id: user_id });
                 });
 
-                //On receving some data
+                //On receving notification
                 socket.on('notify', function (data) {
                     console.log(data);
                     var msg = data.user + ' @ ' + data.ts + ' : ' + data.n_id + "-" + data.message;
