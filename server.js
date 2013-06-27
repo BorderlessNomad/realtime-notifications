@@ -1,9 +1,16 @@
 try {
+	//Configurations
+	var config = {
+		"redis": { "db": 4 },
+		"socket": { "port": 8080 },
+	};
+	
+	//Includes
 	var redis = require('redis'),
-		subscriber = redis.createClient(),
-		io = require('socket.io').listen(8080);
+	subscriber = redis.createClient(),
+	io = require('socket.io').listen(config.socket.port);
 
-	subscriber.select(4);
+	subscriber.select(config.redis.db);
 
 	io.enable('browser client minification'); // send minified client
 	io.enable('browser client etag'); // apply etag caching logic based on version number
