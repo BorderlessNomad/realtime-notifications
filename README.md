@@ -6,7 +6,7 @@ Very lightweight and handy pub-sub mechanism for your realtime notification syst
 Version
 -
 
-1.0.0
+1.0.1
 
 Tech
 -----------

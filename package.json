@@ -1,6 +1,6 @@
 {
     "name": "Realtime-PubSub",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Mayur Ahir <ahirmayur@gmail.com>",
     "description": "Realtime Pubsub Server demo",
     "preferGlobal": true,
