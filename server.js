@@ -1,8 +1,8 @@
 try {
 	//Configurations
 	var config = {
-		"redis": { "db": 4 },
 		"socket": { "port": 8080 },
+		"redis": { "db": 4 },
 	};
 	
 	//Includes
